@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Signup Form</title>
+    <link rel="stylesheet" href="/styles/signup.css">
+    <script src="/controllers/signuptesting.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Signup</h2>
+        <form id="signupForm" action="/signup" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required onblur="validateEmail()">
+            <div class="email-error" hidden>invalid email format</div>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required onblur="validatePassword()">
+            <div class="password-error"hidden>password must contain a uppercase,lowercase,specialcharacter,number and minimum 8  </div>
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required onblur="confirmPassword()">
+            <div class="confirm-password-error"hidden>ooops... password doesnt match !</div>
+
+            <button type="submit">Signup</button>
+            <button style="margin-top: 20px;" type="button" onclick="redirectToLogin()">Login</button>
+        </form>
+    </div>
+</body>
+</html>
