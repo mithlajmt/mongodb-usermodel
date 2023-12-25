@@ -1,0 +1,17 @@
+[33mcommit 03037346a5441ce96ea3a88f6a422674f0de693b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: mithlajmatta <144442116+mithlajmatta@users.noreply.github.com>
+Date:   Mon Dec 25 16:03:48 2023 +0530
+
+    database connected firstphase
+
+[33mcommit e5c8b287a974f097a4a945eb89de1e90a3cc9135[m
+Author: mithlajmatta <144442116+mithlajmatta@users.noreply.github.com>
+Date:   Mon Dec 25 01:06:17 2023 +0530
+
+    signupform errorchecking
+
+[33mcommit 8e5a0785dbdfc752f48cfae5a5b9995aa7111985[m
+Author: mithlajmatta <144442116+mithlajmatta@users.noreply.github.com>
+Date:   Sun Dec 24 21:26:27 2023 +0530
+
+    first commit

@@ -8,7 +8,7 @@ const port = 4000;
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/mongodbproject', {
   // useNewUrlParser: true,
-  useUnifiedTopology: true, // Add this line
+  // useUnifiedTopology: true, // Add this line
 
 }).then(() => {
   console.log('DB connection successful');
