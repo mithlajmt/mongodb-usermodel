@@ -1,23 +1,31 @@
 const User = require('../models/userModel');
 const bcrypt = require('bcryptjs');
 
-  exports.signup = async (req, res, next) => {
-    try {
-      const newUser = await User.create(req.body);
-      req.session.user = newUser;
-  
-      console.log('Session:', req.session); // Log the session object
-  
-      // Redirect to the homepage after successful signup
-      res.redirect('/homepage');
-    } catch (err) {
-      console.error('Error in signup:', err);
-      res.status(500).json({
-        status: 'error',
-        message: 'Internal server error',
-      });
+exports.signup = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+    let role = 'user';
+
+    // Check if the email is for an admin
+    if (email === 'smartboy@gmail.com') {
+      role = 'admin';
     }
-  };
+
+    const newUser = await User.create({ ...req.body, role });
+    req.session.user = newUser;
+
+    console.log('Session:', req.session); // Log the session object
+
+    // Redirect to the homepage after successful signup
+    res.redirect('/homepage');
+  } catch (err) {
+    console.error('Error in signup:', err);
+    res.status(500).json({
+      status: 'error',
+      message: 'Internal server error',
+    });
+  }
+};
 
 exports.login = async (req, res, next) => {
   try {

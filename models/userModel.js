@@ -12,6 +12,12 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
     validate: [validator.isEmail, 'Invalid email format'],
   },
+  
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: 'user',
+  },
 
   photo: String,
 

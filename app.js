@@ -2,6 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const mongoose = require('mongoose');
 const sessionChecker = require('./middlewares/sessionMiddleware')
+const adminChecker = require('./middlewares/adminMiddleware')
 const authController = require('./controllers/authController')
 const authRouter = require('./routes/authRouter');
 const path = require('path');
@@ -58,6 +59,11 @@ app.get('/login',sessionChecker, (req, res) => {
 });
 
 app.get('/logout',authController.logout)
+// Example usage of requireAdmin middleware
+app.get('/admin/dashboard', adminChecker, (req, res) => {
+  res.render('admin_dashboard');
+});
+
 
 
 

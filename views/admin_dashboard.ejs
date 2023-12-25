@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .dashboard {
+            display: flex;
+            gap: 20px;
+        }
+
+        .dashboard-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .dashboard-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .dashboard-item i {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .dashboard-item p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        #users {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        #products {
+            background-color: #2ecc71;
+            color: #fff;
+        }
+
+        #settings {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="dashboard-item" id="users">
+            <i>U</i>
+            <p>Users</p>
+        </div>
+        <div class="dashboard-item" id="products">
+            <i>P</i>
+            <p>Products</p>
+        </div>
+        <div class="dashboard-item" id="settings">
+            <i>S</i>
+            <p>Settings</p>
+        </div>
+    </div>
+</body>
+</html>
