@@ -2,6 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const mongoose = require('mongoose');
 const sessionChecker = require('./middlewares/sessionMiddleware')
+const authController = require('./controllers/authController')
 const authRouter = require('./routes/authRouter');
 const path = require('path');
 
@@ -12,7 +13,13 @@ const port = 4000;
 mongoose.connect('mongodb://localhost:27017/mongodbproject', {
   // useNewUrlParser: true,
   // useUnifiedTopology: true,
-});
+})
+.then(()=>{
+  console.log('njn vanneda');
+})
+.catch((err)=>{
+  console.log('something seems fishy u got an error');
+})
 
 // Set up session middleware
 app.use(
@@ -42,10 +49,16 @@ app.use((req, res, next) => {
 app.get('/',sessionChecker, (req, res) => {
   res.render('signup');
 });
+app.get('/signup',sessionChecker, (req, res) => {
+  res.render('signup');
+});
 
 app.get('/login',sessionChecker, (req, res) => {
   res.render('login');
 });
+
+app.get('/logout',authController.logout)
+
 
 
 

@@ -48,3 +48,17 @@ exports.login = async (req, res, next) => {
   }
 };
 
+exports.logout = (req, res, next) => {
+  // Clear the session
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error destroying session:', err);
+      return res.status(500).json({
+        status: 'error',
+        message: 'Internal server error',
+      });
+    }
+    // Redirect to the signup page after logout
+    res.redirect('/signup');
+  });
+};

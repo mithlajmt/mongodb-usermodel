@@ -1,5 +1,3 @@
-// authMiddleware.js
-
 function ensureAuthenticated(req, res, next) {
     if (req.session.user) {
       // User is authenticated, redirect to homepage or another page
@@ -10,4 +8,3 @@ function ensureAuthenticated(req, res, next) {
   }
   
   module.exports = ensureAuthenticated;
-  
