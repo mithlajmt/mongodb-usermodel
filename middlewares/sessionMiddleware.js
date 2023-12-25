@@ -1,4 +1,4 @@
-// authMiddleware.js
+// sessionMiddleware.js
 
 function ensureAuthenticated(req, res, next) {
     if (req.session.user) {
