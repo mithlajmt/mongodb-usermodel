@@ -93,10 +93,17 @@ function requireAuth(req, res, next) {
 }
 
 // Homepage route with requireAuth middleware
+// Homepage route with requireAuth middleware
 app.get('/homepage', requireAuth, (req, res) => {
-  console.log('Reached homepage route');
-  res.render('homepage');
+  if (req.session.user && req.session.user.role === 'admin') {
+    // Render admin homepage
+    res.render('admin_homepage');
+  } else {
+    // Render regular user homepage
+    res.render('homepage');
+  }
 });
+
 
 app.use('/users', authRouter);
 

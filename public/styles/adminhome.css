@@ -1,0 +1,60 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #f0f0f0, #e0e0e0);
+  animation: backgroundAnimation 20s linear infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+header {
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  background: linear-gradient(to right, #36d1dc, #5b86e5);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  transform: scale(1.1);
+}
+
+main {
+  padding: 20px;
+}
+
+footer {
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
