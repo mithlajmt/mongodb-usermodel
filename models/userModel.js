@@ -51,7 +51,7 @@ userSchema.pre('save', async function(next){  //since we r using async version o
 
   //encrypt the password before saving it
   this.password = await bcrypt.hash(this.password,12);  //first generate random string and hash it so it will be unique  (async hash)
-  this.confirmPassword = undefined ;  //since we dont need this tobe stores in db or encrypt it
+  this.confirmPassword = undefined ;  //since we dont need this tobe stored in db or encrypt it
   next();
 })
 

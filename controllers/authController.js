@@ -1,5 +1,6 @@
 const User = require('../models/userModel');
 const bcrypt = require('bcryptjs');
+const mongoose = require('mongoose');
 
 exports.signup = async (req, res, next) => {
   try {
@@ -7,7 +8,7 @@ exports.signup = async (req, res, next) => {
     let role = 'user';
 
     // Check if the email is for an admin
-    if (email === 'smartboy@gmail.com') {
+    if (email === 'mithlajmatta1@gmail.com') {
       role = 'admin';
     }
 
@@ -19,19 +20,24 @@ exports.signup = async (req, res, next) => {
     // Redirect to the homepage after successful signup
     res.redirect('/homepage');
   } catch (err) {
-    console.error('Error in signup:', err);
-    res.status(500).json({
-      status: 'error',
-      message: 'Internal server error',
-    });
+    if (err instanceof mongoose.Error.ValidationError) {
+      const objs = Object.values(err);
+      req.session.message = objs[0]?.confirmPassword.properties.message;
+      console.log(req.session.message);
+    }
+    res.redirect('/')
+    req.session.message = ''
   }
+  
 };
 
 exports.login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
+  
 
     const user = await User.findOne({ email });
+    
 
     if (!user || !(await bcrypt.compare(password, user.password))) {
       return res.status(401).json({
@@ -42,6 +48,7 @@ exports.login = async (req, res, next) => {
 
     // Set up a session
     req.session.user = user;
+
 
     console.log('Session:', req.session); // Log the session object
     res.redirect('/homepage')
