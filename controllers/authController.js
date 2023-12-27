@@ -2,6 +2,7 @@ const User = require('../models/userModel');
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 
+
 exports.signup = async (req, res, next) => {
   try {
     const { email } = req.body;
@@ -77,3 +78,5 @@ exports.logout = (req, res, next) => {
     res.redirect('/signup');
   });
 };
+
+

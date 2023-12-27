@@ -8,6 +8,7 @@ const authRouter = require('./routes/authRouter');
 const productRouter = require('./routes/productRouter'); // Add this line
 const path = require('path');
 const productsMiddle = require('./middlewares/productsMiddleware')
+const adminRouter = require('./routes/adminRouter')
 
 const app = express();
 const port = 4000;
@@ -106,6 +107,7 @@ app.get('/homepage', requireAuth, (req, res) => {
 
 
 app.use('/users', authRouter);
+app.use('/admin', adminRouter);
 
 // Start the server
 app.listen(port, () => {
