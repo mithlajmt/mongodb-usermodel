@@ -76,9 +76,9 @@ app.get('/admin/dashboard', adminChecker, (req, res) => {
   res.render('admin_dashboard');
 });
 
-app.get('/products',productsMiddle,(req,res)=>{
-  res.render('products')
-})
+// app.get('/products',productsMiddle,(req,res)=>{
+//   res.render('products')
+// })
 
 
 

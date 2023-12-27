@@ -1,0 +1,92 @@
+<!-- edit-products.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Products Page</title>
+  <style>
+    /* Basic styling for the page */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    /* Styling for the product cards */
+    .product-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Styling for buttons */
+    .delete-button,
+    .update-button {
+      padding: 10px;
+      margin-right: 10px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    .delete-button {
+      background-color: #dc3545;
+      color: #fff;
+    }
+
+    .update-button {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    /* Styling for product image */
+    .product-image {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Edit Products</h1>
+
+  <% products.forEach(product => { %>
+    <!-- Product cards with delete and update buttons -->
+    <div class="product-card">
+      <img src="<%= product.image %>" alt="<%= product.productName %>" class="product-image">
+      <h2><%= product.productName %></h2>
+      <p>Price: <%= product.price %></p>
+      <p>Description: <%= product.description %></p>
+      <p>Stocks: <%= product.stocks %></p>
+      <button class="delete-button" onclick="deleteProduct('<%= product._id %>')"><a href="/admin/delete/<%= product._id %>">delete</a></button>
+      <button class="update-button" onclick="updateProduct('<%= product._id %>')"><a href="/admin/update/<%= product._id %>">update</a></button>
+    </div>
+  <% }); %>
+
+  <!-- Script for handling delete and update actions -->
+  <script>
+    function deleteProduct(productId) {
+      // Implement logic to delete the product with the given ID
+      console.log(`Product ${productId} deleted.`);
+      // You can send an AJAX request to your server to delete the product
+    }
+
+    function updateProduct(productId) {
+      // Implement logic to update the product with the given ID
+      console.log(`Product ${productId} updated.`);
+      // You can redirect the user to the edit page or show a modal for editing
+    }
+  </script>
+</body>
+</html>

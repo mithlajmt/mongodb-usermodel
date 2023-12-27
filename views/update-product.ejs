@@ -1,0 +1,57 @@
+<!-- edit-product.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Product</title>
+  <style>
+    /* Add your custom styles here */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    /* Add more styles as needed */
+  </style>
+</head>
+<body>
+  <h1>Edit Product</h1>
+
+  <!-- Product edit form -->
+  <form action="/admin/products/edit/<%= product._id %>" method="POST">
+    <!-- Product Name -->
+    <label for="productName">Product Name:</label>
+    <input type="text" id="productName" name="productName" value="<%= product.productName %>" required>
+
+    <!-- Price -->
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" value="<%= product.price %>" required>
+
+    <!-- Description -->
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="4"><%= product.description %></textarea>
+
+    <!-- Image -->
+    <label for="image">Image URL:</label>
+    <input type="text" id="image" name="image" value="<%= product.image %>" required>
+
+    <!-- Stocks -->
+    <label for="stocks">Stocks:</label>
+    <input type="number" id="stocks" name="stocks" value="<%= product.stocks %>" required>
+
+    <!-- Submit button -->
+    <button type="submit">Update Product</button>
+  </form>
+
+  <!-- Add additional content as needed -->
+
+</body>
+</html>

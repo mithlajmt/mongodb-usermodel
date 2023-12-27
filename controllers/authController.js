@@ -79,4 +79,11 @@ exports.logout = (req, res, next) => {
   });
 };
 
+exports.sessioncheck = (req,res,next)=>{
+  if(!req.session.user){
+    res.redirect('/signup');
+  }
+  next()
+
+}
 
